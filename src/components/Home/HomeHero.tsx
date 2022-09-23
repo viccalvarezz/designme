@@ -18,9 +18,9 @@ export const HomeHero = (props: HomeHeroProps) => {
     <Stack as="section" py={16} {...props}>
       <Container maxW="container.sm">
         <Stack spacing={8} align="center">
-          <Stack spacing={6} align="center">
+          <Stack spacing={6} align="center" textAlign="center">
             <Box display="flex" justifyContent="center">
-              <Box as={LogoIcon} height="100px" width="auto" />
+              <Box as={LogoIcon} height={{ base: 16, md: 24 }} width="auto" />
             </Box>
 
             <Heading
@@ -32,7 +32,7 @@ export const HomeHero = (props: HomeHeroProps) => {
               Learn the basics of UI/UX design
             </Heading>
 
-            <Text fontSize="lg" textAlign="center">
+            <Text fontSize="lg">
               A fun, easy and fast way to learn the essentials of user interface
               design for the best user experience for{` `}
               <Text as="b" color="green.500">
