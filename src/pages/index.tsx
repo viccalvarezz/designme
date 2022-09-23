@@ -1,7 +1,7 @@
-import { Text } from "@chakra-ui/react";
 import { LayoutHeader } from "@/components/Layout/LayoutHeader";
 import { LayoutMain } from "@/components/Layout/LayoutMain";
 import { LayoutContainer } from "@/components/Layout/LayoutContainer";
+import { HomeHero } from "@/components/Home/HomeHero";
 
 const IndexPage = () => {
   return (
@@ -9,9 +9,7 @@ const IndexPage = () => {
       <LayoutHeader />
 
       <LayoutMain>
-        <LayoutContainer>
-          <Text>etwwe</Text>
-        </LayoutContainer>
+        <HomeHero />
       </LayoutMain>
     </>
   );
