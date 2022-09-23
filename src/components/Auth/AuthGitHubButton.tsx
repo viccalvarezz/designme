@@ -3,9 +3,12 @@ import { supabaseClient as supabase } from "@supabase/auth-helpers-nextjs";
 
 export const AuthGitHubButton = (props: ButtonProps) => {
   const handleClick = async () => {
-    const { error } = await supabase.auth.signIn({
-      provider: "github",
-    });
+    const { error } = await supabase.auth.signIn(
+      {
+        provider: "github",
+      },
+      { redirectTo: window.location.origin }
+    );
   };
 
   return <Button onClick={handleClick} {...props} />;
