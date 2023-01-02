@@ -10,7 +10,7 @@ export const LayoutHeader = ({ children, ...others }: StackProps) => {
   const { user } = useUser();
 
   return (
-    <Stack as="header" h={16} boxShadow="lg" {...others}>
+    <Stack as="header" position="sticky" top={0} h={16} bgColor="white" boxShadow="lg" zIndex="docked" {...others}>
       <LayoutContainer h="full">
         <Stack direction="row" align="center" h="full" justify="space-between">
           <Box as={LogoIcon} height={10} width="auto" />
@@ -25,7 +25,7 @@ export const LayoutHeader = ({ children, ...others }: StackProps) => {
                 <Avatar size="sm" name={user.email} />
               </LayoutMenuButton>
             ) : (
-              <AuthGitHubButton>Login</AuthGitHubButton>
+              <AuthGitHubButton colorScheme='green'>Login</AuthGitHubButton>
             )}
           </Stack>
         </Stack>

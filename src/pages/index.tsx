@@ -1,7 +1,8 @@
 import { LayoutHeader } from "@/components/Layout/LayoutHeader";
 import { LayoutMain } from "@/components/Layout/LayoutMain";
-import { LayoutContainer } from "@/components/Layout/LayoutContainer";
 import { HomeHero } from "@/components/Home/HomeHero";
+import { HomeQualitiesSection } from "@/components/Home/HomeQualitiesSection";
+import { HomeBenefitsSection } from "@/components/Home/HomeBenefitsSection";
 
 const IndexPage = () => {
   return (
@@ -10,6 +11,8 @@ const IndexPage = () => {
 
       <LayoutMain>
         <HomeHero />
+        <HomeQualitiesSection />
+        <HomeBenefitsSection />
       </LayoutMain>
     </>
   );
