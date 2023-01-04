@@ -21,7 +21,7 @@ export const HomeHero = (props: HomeHeroProps) => {
         <Stack spacing={8} align="center">
           <Stack spacing={6} align="center" textAlign="center">
             <Box display="flex" justifyContent="center">
-              <Box as={LogoIcon} height={{ base: 16, md: 24 }} width="auto" />
+              <Box as={LogoIcon} h={{ base: 16, md: 24 }} w="auto" />
             </Box>
 
             <Heading
@@ -43,14 +43,16 @@ export const HomeHero = (props: HomeHeroProps) => {
           </Stack>
 
           <ButtonGroup size="md" spacing={4}>
-            <Button variant="outline" colorScheme='green'>Learn more</Button>
+            <Button variant="outline" colorScheme="green">
+              Learn more
+            </Button>
 
             <Button
               as="a"
               rel="noopener noreferrer"
               target="_blank"
               href="https://github.com/uo266618"
-              colorScheme='green'
+              colorScheme="green"
             >
               Sign up
             </Button>
