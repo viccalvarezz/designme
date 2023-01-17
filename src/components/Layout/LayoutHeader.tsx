@@ -1,4 +1,10 @@
-import { Avatar, Stack, Box, StackProps } from "@chakra-ui/react";
+import {
+  Avatar,
+  Stack,
+  Box,
+  StackProps,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { AuthGitHubButton } from "@/components/Auth/AuthGitHubButton";
 import { useUser } from "@supabase/auth-helpers-react";
 import LogoIcon from "@/assets/svgs/logo.svg";
@@ -15,7 +21,7 @@ export const LayoutHeader = ({ children, ...others }: StackProps) => {
       position="sticky"
       top={0}
       h={16}
-      bgColor="white"
+      bgColor={useColorModeValue("white", "grey.800")}
       boxShadow="lg"
       zIndex="docked"
       {...others}

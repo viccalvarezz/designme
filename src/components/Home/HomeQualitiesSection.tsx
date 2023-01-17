@@ -2,11 +2,11 @@ import React from "react";
 import Image from "next/image";
 import {
   Stack,
-  Box,
   Heading,
   StackProps,
   Grid,
   GridItem,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { LayoutContainer } from "@/components/Layout/LayoutContainer";
 
@@ -20,7 +20,7 @@ export const HomeQualitiesSection = (props: HomeQualitiesSectionProps) => {
   ];
 
   return (
-    <Stack as="section" py={16} bg="cream.50" {...props}>
+    <Stack as="section" py={16} bg={useColorModeValue("cream.50", "grey.800")}>
       <LayoutContainer>
         <Stack spacing={8}>
           <Heading as="h2" fontSize="2xl" fontWeight="bold" textAlign="center">

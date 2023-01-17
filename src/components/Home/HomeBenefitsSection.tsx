@@ -80,7 +80,7 @@ export const HomeBenefitsSection = (props: HomeBenefitsSectionProps) => {
                 <Stack spacing={4} align="center" textAlign="center">
                   <Box
                     borderRadius="full"
-                    backgroundColor="green.400"
+                    bgColor="green.400"
                     w={45}
                     h={45}
                     display="flex"

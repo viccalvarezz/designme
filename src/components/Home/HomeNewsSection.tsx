@@ -7,6 +7,7 @@ import {
   Heading,
   Text,
   Button,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { LayoutContainer } from "@/components/Layout/LayoutContainer";
 
@@ -29,7 +30,7 @@ export const HomeNewsSection = (props: HomeNewsSectionProps) => {
   ];
 
   return (
-    <Stack as="section" py={16} bg="cream.50" {...props}>
+    <Stack as="section" py={16} bg={useColorModeValue("cream.50", "grey.800")}>
       <LayoutContainer>
         <Stack spacing={8}>
           <Grid
@@ -48,7 +49,7 @@ export const HomeNewsSection = (props: HomeNewsSectionProps) => {
                   spacing={4}
                   h="full"
                 >
-                  <Stack flex={1} spacing={4}>
+                  <Stack flex={1} spacing={4} color="grey.800">
                     <Heading as="h2" fontSize="lg">
                       {title}
                     </Heading>

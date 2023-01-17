@@ -8,6 +8,7 @@ import {
   ButtonGroup,
   Container,
   StackProps,
+  useColorMode,
 } from "@chakra-ui/react";
 import { LayoutContainer } from "@/components/Layout/LayoutContainer";
 import LogoIcon from "@/assets/svgs/logo.svg";
@@ -15,6 +16,9 @@ import LogoIcon from "@/assets/svgs/logo.svg";
 export type HomeHeroProps = StackProps;
 
 export const HomeHero = (props: HomeHeroProps) => {
+  const { colorMode } = useColorMode();
+  const isDark = colorMode === "dark";
+
   return (
     <Stack as="section" py={16} {...props}>
       <LayoutContainer maxW="container.sm">
@@ -27,7 +31,7 @@ export const HomeHero = (props: HomeHeroProps) => {
             <Heading
               as="h1"
               fontSize="1.75rem"
-              color="grey.500"
+              color={isDark ? "white" : "grey.800"}
               fontWeight="bold"
             >
               Learn the basics of UI/UX design

@@ -1,9 +1,9 @@
-import { Stack, StackProps, Text } from "@chakra-ui/react";
+import { Stack, StackProps, Text, useColorModeValue } from "@chakra-ui/react";
 import { LayoutContainer } from "./LayoutContainer";
 
 export const LayoutFooter = (props: StackProps) => {
   return (
-    <Stack as="footer">
+    <Stack as="footer" bg={useColorModeValue("white", "grey.700")}>
       <LayoutContainer h="full">
         <Stack
           direction="column"
