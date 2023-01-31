@@ -6,11 +6,13 @@ import {
   MenuButton,
   Portal,
 } from "@chakra-ui/react";
-import { supabaseClient as supabase } from "@supabase/auth-helpers-nextjs";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 export const LayoutMenuButton = ({ children, ...others }: MenuButtonProps) => {
+  const supabaseClient = useSupabaseClient();
+
   const handleLogoutClick = async () => {
-    const { error } = await supabase.auth.signOut();
+    const { error } = await supabaseClient.auth.signOut();
   };
 
   return (

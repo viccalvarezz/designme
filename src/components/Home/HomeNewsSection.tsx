@@ -8,12 +8,16 @@ import {
   Text,
   Button,
   useColorModeValue,
+  useColorMode,
 } from "@chakra-ui/react";
 import { LayoutContainer } from "@/components/Layout/LayoutContainer";
 
 export type HomeNewsSectionProps = StackProps;
 
 export const HomeNewsSection = (props: HomeNewsSectionProps) => {
+  const { colorMode } = useColorMode();
+  const isDark = colorMode === "dark";
+
   const news = [
     {
       title: "Basic principles of design",
@@ -44,7 +48,7 @@ export const HomeNewsSection = (props: HomeNewsSectionProps) => {
                   as="article"
                   boxShadow="md"
                   borderRadius="md"
-                  bgColor="white"
+                  bgColor={isDark ? "cream.50" : "white"}
                   p={8}
                   spacing={4}
                   h="full"
