@@ -3,6 +3,7 @@ import { LayoutHeader } from "@/components/Layout/LayoutHeader";
 import { LayoutFooter } from "@/components/Layout/LayoutFooter";
 import { LayoutMain } from "@/components/Layout/LayoutMain";
 import { GameSessionCard } from "@/components/Game/GameSessionCard";
+import { LayoutPrivate } from "@/components/Layout/LayoutPrivate";
 import { LayoutContainer } from "@/components/Layout/LayoutContainer";
 import { GameProfileBox } from "@/components/Game/GameProfileBox";
 
@@ -10,9 +11,8 @@ const HomePage = () => {
   const games = Array.from({ length: 5 }, () => ({}));
 
   return (
-    <>
+    <LayoutPrivate>
       <LayoutHeader />
-
       <LayoutMain my={8}>
         <LayoutContainer>
           <Stack
@@ -45,7 +45,7 @@ const HomePage = () => {
       </LayoutMain>
 
       <LayoutFooter />
-    </>
+    </LayoutPrivate>
   );
 };
 

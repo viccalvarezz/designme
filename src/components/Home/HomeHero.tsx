@@ -11,6 +11,7 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import { LayoutContainer } from "@/components/Layout/LayoutContainer";
+import { AuthGitHubButton } from "../Auth/AuthGitHubButton";
 import LogoIcon from "@/assets/svgs/logo.svg";
 
 export type HomeHeroProps = StackProps;
@@ -47,19 +48,20 @@ export const HomeHero = (props: HomeHeroProps) => {
           </Stack>
 
           <ButtonGroup size="md" spacing={4}>
-            <Button variant="outline" colorScheme="green">
-              Learn more
-            </Button>
-
             <Button
               as="a"
               rel="noopener noreferrer"
               target="_blank"
-              href="https://github.com/uo266618"
+              variant="outline"
               colorScheme="green"
+              href="https://github.com/uo266618"
             >
-              Sign up
+              Code base
             </Button>
+
+            <AuthGitHubButton colorScheme="green">
+              Start learning
+            </AuthGitHubButton>
           </ButtonGroup>
         </Stack>
       </LayoutContainer>

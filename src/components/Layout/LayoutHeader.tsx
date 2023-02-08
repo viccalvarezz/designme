@@ -11,20 +11,12 @@ import LogoIcon from "@/assets/svgs/logo.svg";
 import { DarkModeIconButton } from "@/components/Shared/DarkModeIconButton";
 import { LayoutContainer } from "./LayoutContainer";
 import { LayoutMenuButton } from "./LayoutMenuButton";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 export const LayoutHeader = ({ children, ...others }: StackProps) => {
   const router = useRouter();
   const session = useSession();
-
-  const handleClick = () => {
-    if (session) {
-      router.push("/home");
-      return;
-    }
-
-    router.push("/");
-  };
 
   return (
     <Stack
@@ -39,13 +31,9 @@ export const LayoutHeader = ({ children, ...others }: StackProps) => {
     >
       <LayoutContainer h="full">
         <Stack direction="row" align="center" h="full" justify="space-between">
-          <Box
-            as={LogoIcon}
-            h={10}
-            w="auto"
-            cursor="pointer"
-            onClick={handleClick}
-          />
+          <Link href="/">
+            <Box as={LogoIcon} h={10} w="auto" cursor="pointer" />
+          </Link>
 
           {children}
 
