@@ -5,7 +5,7 @@ export const AuthGitHubButton = (props: ButtonProps) => {
   const supabaseClient = useSupabaseClient();
 
   const handleClick = async () => {
-    const { error } = await supabaseClient.auth.signInWithOAuth({
+    const { data, error } = await supabaseClient.auth.signInWithOAuth({
       provider: "github",
     });
   };
