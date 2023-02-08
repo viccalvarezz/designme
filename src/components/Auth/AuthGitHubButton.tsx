@@ -8,7 +8,7 @@ export const AuthGitHubButton = (props: ButtonProps) => {
     const { data, error } = await supabaseClient.auth.signInWithOAuth({
       provider: "github",
       options: {
-        redirectTo: window.location.origin + "/home",
+        redirectTo: window.location.origin,
       },
     });
   };
