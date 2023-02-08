@@ -7,6 +7,9 @@ export const AuthGitHubButton = (props: ButtonProps) => {
   const handleClick = async () => {
     const { data, error } = await supabaseClient.auth.signInWithOAuth({
       provider: "github",
+      options: {
+        redirectTo: window.location.origin,
+      },
     });
   };
 
