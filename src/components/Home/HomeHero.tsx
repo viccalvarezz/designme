@@ -54,7 +54,7 @@ export const HomeHero = (props: HomeHeroProps) => {
               target="_blank"
               variant="outline"
               colorScheme="green"
-              href="https://github.com/uo266618"
+              href="https://github.com/viccalvarezz"
             >
               Code base
             </Button>
