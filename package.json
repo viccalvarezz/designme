@@ -4,7 +4,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "types": "npx supabase gen types typescript --project-id 'llgoowumvlccpmaocxvd' --schema public > src/supabase.ts"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.5",

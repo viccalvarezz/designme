@@ -11,9 +11,13 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-export type GameProfileBoxProps = StackProps & { name: string };
+export type GameProfileBoxProps = StackProps & { name: string; src?: string };
 
-export const GameProfileBox = ({ name, ...others }: GameProfileBoxProps) => {
+export const GameProfileBox = ({
+  name,
+  src,
+  ...others
+}: GameProfileBoxProps) => {
   return (
     <Stack
       as="article"
@@ -25,7 +29,7 @@ export const GameProfileBox = ({ name, ...others }: GameProfileBoxProps) => {
       w="full"
       {...others}
     >
-      <Avatar name={name} size="xl" />
+      <Avatar name={name} size="xl" src={src} />
       <Heading as="h2" fontSize="xl">
         {name}
       </Heading>

@@ -9,55 +9,59 @@ import {
   Box,
   VStack,
 } from "@chakra-ui/react";
+import NextLink from "next/link";
+import { Game } from "@/types";
 
 export type GameSessionCardProps = StackProps & {
   index: number;
-  title: string;
-  description: string;
+  game: Game;
 };
 
 export const GameSessionCard = ({
   index,
-  title,
-  description,
+  game,
   ...others
 }: GameSessionCardProps) => {
   return (
-    <Stack spacing={8} {...others}>
-      <Grid
-        boxShadow="md"
-        borderRadius="md"
-        bgColor="green.400"
-        p={8}
-        h="full"
+    <Stack
+      spacing={8}
+      direction="row"
+      boxShadow="md"
+      borderRadius="md"
+      bgColor="green.400"
+      p={8}
+      alignItems="center"
+      {...others}
+    >
+      <Box
+        borderRadius="full"
+        minW={35}
+        h={35}
+        bgColor="white"
         display="flex"
-        flexDir="row"
-        justifyContent="space-between"
+        boxShadow="lg"
+        fontWeight="bold"
+        justifyContent="center"
+        alignItems="center"
       >
-        <Box
-          borderRadius="full"
-          w={35}
-          h={35}
-          bgColor="white"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          {index}
-        </Box>
+        {index}
+      </Box>
 
-        <VStack>
-          <Heading fontSize="lg" color="white">
-            {title}
-          </Heading>
+      <Stack flex={1} alignItems="flex-start">
+        <Heading fontSize="lg" color="white">
+          {game.name}
+        </Heading>
 
-          <Text color="white">{description}</Text>
-        </VStack>
+        <Text color="white">{game.description}</Text>
+      </Stack>
 
-        <Button color="green.400" bgColor="white" w={28}>
-          Start
-        </Button>
-      </Grid>
+      <Stack>
+        <NextLink href={`/games/${game.id}`} passHref>
+          <Button as="a" color="green.400" bgColor="white">
+            Start
+          </Button>
+        </NextLink>
+      </Stack>
     </Stack>
   );
 };

@@ -1,4 +1,4 @@
-import { useSessionContext } from "@supabase/auth-helpers-react";
+import { useSessionContext, useUser } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/router";
 import { ReactChildren, ReactNode, useEffect } from "react";
 
@@ -8,6 +8,7 @@ export interface LayoutPrivateProps {
 
 export const LayoutPrivate = ({ children }: LayoutPrivateProps) => {
   const { isLoading, session } = useSessionContext();
+  const user = useUser();
   const router = useRouter();
 
   useEffect(() => {

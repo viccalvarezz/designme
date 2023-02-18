@@ -6,17 +6,15 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { AuthGitHubButton } from "@/components/Auth/AuthGitHubButton";
-import { useSession } from "@supabase/auth-helpers-react";
+import { useUser } from "@supabase/auth-helpers-react";
 import LogoIcon from "@/assets/svgs/logo.svg";
 import { DarkModeIconButton } from "@/components/Shared/DarkModeIconButton";
 import { LayoutContainer } from "./LayoutContainer";
 import { LayoutMenuButton } from "./LayoutMenuButton";
-import { useRouter } from "next/router";
 import Link from "next/link";
 
 export const LayoutHeader = ({ children, ...others }: StackProps) => {
-  const router = useRouter();
-  const session = useSession();
+  const user = useUser();
 
   return (
     <Stack
@@ -40,9 +38,13 @@ export const LayoutHeader = ({ children, ...others }: StackProps) => {
           <Stack direction="row" spacing="2">
             <DarkModeIconButton borderRadius="full" variant="ghost" />
 
-            {session ? (
+            {user ? (
               <LayoutMenuButton aria-label="Open settings menu">
-                <Avatar size="sm" name={session.user.email} />
+                <Avatar
+                  size="sm"
+                  name={user.user_metadata.name}
+                  src={user.user_metadata.avatar_url}
+                />
               </LayoutMenuButton>
             ) : (
               <AuthGitHubButton colorScheme="green">Login</AuthGitHubButton>
