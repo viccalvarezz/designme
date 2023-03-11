@@ -13,7 +13,7 @@ export const ProfileStats = ({ stats, ...others }: ProfileStatsProps) => {
       {stats
         .sort((a, b) => a.id - b.id)
         .map((stat) => (
-          <ProfileStatsItem stat={stat} />
+          <ProfileStatsItem key={stat.id} stat={stat} />
         ))}
     </Stack>
   );
