@@ -1,4 +1,4 @@
-// eslint react/display-name: 0
+/* eslint react/display-name: 0 */
 
 import { useSessionContext } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/router";
