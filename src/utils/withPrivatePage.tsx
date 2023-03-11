@@ -27,9 +27,8 @@ export const withPrivatePage =
       return <>{children}</>;
     };
 
-    const displayName = Component.displayName || Component.name || "Component";
-
-    PrivatePage.displayName = `withPrivatePage(${displayName})`;
+    Component.displayName = Component.displayName || Component.name || "Page";
+    PrivatePage.displayName = `withPrivatePage(${Component.displayName})`;
 
     return (
       <PrivatePage>
@@ -37,5 +36,3 @@ export const withPrivatePage =
       </PrivatePage>
     );
   };
-
-withPrivatePage.displayName = "withPrivatePage";
