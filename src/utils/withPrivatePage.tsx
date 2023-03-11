@@ -37,3 +37,5 @@ export const withPrivatePage =
       </PrivatePage>
     );
   };
+
+withPrivatePage.displayName = "withPrivatePage";
