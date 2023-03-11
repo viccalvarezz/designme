@@ -29,7 +29,7 @@ export const LayoutHeader = ({ children, ...others }: StackProps) => {
     >
       <LayoutContainer h="full">
         <Stack direction="row" align="center" h="full" justify="space-between">
-          <Link href="/">
+          <Link href={user ? "/games" : "/"}>
             <Box as={LogoIcon} h={10} w="auto" cursor="pointer" />
           </Link>
 

@@ -18,11 +18,18 @@ export class QuestionsService {
     return question;
   }
 
-  async fetchAll({ gameId }: { gameId: number }): Promise<Array<Question>> {
+  async fetchAll({
+    userId,
+    gameId,
+  }: {
+    userId: string;
+    gameId: number;
+  }): Promise<Array<Question>> {
     const { data: questions } = await this.supabase
       .from("questions")
       .select("*, users_answers(answers(*))")
-      .eq("game_id", gameId);
+      .eq("game_id", gameId)
+      .eq("users_answers.user_id", userId);
 
     return questions.map((question) => {
       const answer = question.users_answers[0]?.answers;

@@ -1,17 +1,20 @@
 import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
+import { useState } from "react";
 import { Grid, Heading, Stack, Box, Text } from "@chakra-ui/react";
 import { Database } from "@/types/supabase";
 import { LayoutHeader } from "@/components/Layout/LayoutHeader";
 import { LayoutFooter } from "@/components/Layout/LayoutFooter";
 import { LayoutMain } from "@/components/Layout/LayoutMain";
-import { LayoutPrivate } from "@/components/Layout/LayoutPrivate";
 import { LayoutContainer } from "@/components/Layout/LayoutContainer";
-import { AnswerCard } from "@/components/Answer/AnswerCard";
+import { useUser } from "@supabase/auth-helpers-react";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { createServices } from "@/services";
-import { useUser } from "@supabase/auth-helpers-react";
 import { Answer, Question } from "@/types";
+import { AnswerCard } from "@/components/Answer/AnswerCard";
+import { AnswerModal } from "@/components/Answer/AnswerModal";
+import { withPrivatePage } from "@/utils/withPrivatePage";
+import { getPrivateProps } from "@/utils/getPrivateProps";
 
 export interface QuestionDetailPageProps {
   question: Question;
@@ -21,14 +24,27 @@ export interface QuestionDetailPageProps {
 const QuestionDetailPage = ({ question, answers }: QuestionDetailPageProps) => {
   const router = useRouter();
   const user = useUser();
+  const [answer, setAnswer] = useState<Answer>(null);
 
-  const handleSelect = () => {
+  const isOpen = !!answer;
+
+  const handleSelect = (
+    event: React.MouseEvent<HTMLButtonElement>,
+    answer: Answer
+  ) => {
+    setAnswer(answer);
+  };
+
+  const handleClose = () => {
+    setAnswer(null);
+
     router.push(`/games/${question.game_id}`);
   };
 
   return (
-    <LayoutPrivate>
+    <>
       <LayoutHeader />
+
       <LayoutMain>
         <LayoutContainer>
           <Stack spacing={8} alignItems="center">
@@ -38,6 +54,13 @@ const QuestionDetailPage = ({ question, answers }: QuestionDetailPageProps) => {
             </Stack>
 
             <Box w="full" maxW="container.lg">
+              <AnswerModal
+                isOpen={isOpen}
+                question={question}
+                answer={answer}
+                onClose={handleClose}
+              />
+
               <Grid
                 templateColumns={{
                   base: "repeat(1, 1fr)",
@@ -61,28 +84,35 @@ const QuestionDetailPage = ({ question, answers }: QuestionDetailPageProps) => {
       </LayoutMain>
 
       <LayoutFooter />
-    </LayoutPrivate>
+    </>
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { params } = ctx;
-  const id = Number(params.id as string);
+export const getServerSideProps: GetServerSideProps = getPrivateProps(
+  async (ctx) => {
+    const { params } = ctx;
+    const id = Number(params.id as string);
 
-  const supabase = createServerSupabaseClient<Database>(ctx);
-  const services = createServices({ supabase });
+    const supabase = createServerSupabaseClient<Database>(ctx);
+    const services = createServices({ supabase });
 
-  const [question, answers] = await Promise.all([
-    services.questions.fetchOne({ id }),
-    services.answers.fetchAll({ questionId: id }),
-  ]);
+    const [question, answers] = await Promise.all([
+      services.questions.fetchOne({ id }),
+      services.answers.fetchAll({ questionId: id }),
+    ]);
 
-  return {
-    props: {
-      question,
-      answers,
-    },
-  };
-};
+    if (!question) {
+      return { notFound: true };
+    }
 
-export default QuestionDetailPage;
+    return {
+      props: {
+        question,
+        answers,
+      },
+    };
+  },
+  { isRequired: true }
+);
+
+export default withPrivatePage(QuestionDetailPage);

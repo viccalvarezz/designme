@@ -20,7 +20,7 @@ export const LayoutMenuButton = ({ children, ...others }: MenuButtonProps) => {
       <MenuButton {...others}>{children}</MenuButton>
 
       <Portal>
-        <MenuList>
+        <MenuList zIndex="popover">
           <MenuItem onClick={handleLogoutClick}>Logout</MenuItem>
         </MenuList>
       </Portal>

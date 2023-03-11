@@ -30,7 +30,15 @@ export class AnswersService {
     answerId: number;
     userId: string;
   }) {
-    return this.supabase.from("users_answers").insert({
+    const { data: joined } = await this.supabase
+      .from("users_answers")
+      .select("*")
+      .eq("question_id", questionId)
+      .eq("user_id", userId)
+      .single();
+
+    return this.supabase.from("users_answers").upsert({
+      id: joined?.id,
       question_id: questionId,
       answer_id: answerId,
       user_id: userId,

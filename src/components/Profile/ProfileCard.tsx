@@ -1,23 +1,20 @@
 import React from "react";
-import {
-  Avatar,
-  Stack,
-  StackProps,
-  Grid,
-  Heading,
-  Text,
-  Button,
-  Box,
-  VStack,
-} from "@chakra-ui/react";
+import { Avatar, Stack, StackProps, Heading } from "@chakra-ui/react";
+import { LevelStats } from "@/types";
+import { ProfileStats } from "./ProfileStats";
 
-export type GameProfileBoxProps = StackProps & { name: string; src?: string };
+export type ProfileCardProps = StackProps & {
+  name: string;
+  src?: string;
+  stats: Array<LevelStats>;
+};
 
-export const GameProfileBox = ({
+export const ProfileCard = ({
   name,
   src,
+  stats,
   ...others
-}: GameProfileBoxProps) => {
+}: ProfileCardProps) => {
   return (
     <Stack
       as="article"
@@ -30,9 +27,12 @@ export const GameProfileBox = ({
       {...others}
     >
       <Avatar name={name} size="xl" src={src} />
+
       <Heading as="h2" fontSize="xl">
         {name}
       </Heading>
+
+      <ProfileStats stats={stats} />
     </Stack>
   );
 };

@@ -10,12 +10,15 @@ import {
 import { Answer } from "@/types";
 import { useServices } from "../Service/useServices";
 
-export type AnswerCardProps = StackProps & {
+export interface AnswerCardProps extends Omit<StackProps, "onSelect"> {
   userId: string;
   questionId: number;
   answer: Answer;
-  onSelect?: React.MouseEventHandler<HTMLButtonElement>;
-};
+  onSelect?: (
+    event: React.MouseEvent<HTMLButtonElement>,
+    answer: Answer
+  ) => void;
+}
 
 export const AnswerCard = ({
   userId,
@@ -26,16 +29,14 @@ export const AnswerCard = ({
 }: AnswerCardProps) => {
   const services = useServices();
 
-  console.log(answer);
-
-  const handleSelect = async (event) => {
+  const handleSelect = async (event: React.MouseEvent<HTMLButtonElement>) => {
     await services.answers.create({
       userId,
       questionId,
       answerId: answer.id,
     });
 
-    onSelect(event);
+    onSelect(event, answer);
   };
 
   return (
