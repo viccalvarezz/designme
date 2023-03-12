@@ -40,6 +40,9 @@ export const getPrivateProps =
       ? await getServerSideProps(ctx, session)
       : {};
 
-    // @ts-ignore
-    return { ...data, props: { ...data.props, session } };
+    return {
+      ...data,
+      // @ts-ignore
+      props: { ...data.props, initialSession: session },
+    };
   };

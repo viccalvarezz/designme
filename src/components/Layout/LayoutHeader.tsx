@@ -29,8 +29,10 @@ export const LayoutHeader = ({ children, ...others }: StackProps) => {
     >
       <LayoutContainer h="full">
         <Stack direction="row" align="center" h="full" justify="space-between">
-          <Link href={user ? "/games" : "/"}>
-            <Box as={LogoIcon} h={10} w="auto" cursor="pointer" />
+          <Link href={user ? "/games" : "/"} passHref>
+            <Box as="a" aria-label="Home">
+              <Box as={LogoIcon} h={10} w="auto" cursor="pointer" />
+            </Box>
           </Link>
 
           {children}

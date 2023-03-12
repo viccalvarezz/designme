@@ -8,11 +8,10 @@ import {
   ButtonGroup,
 } from "@chakra-ui/react";
 import { Answer } from "@/types";
-import { useServices } from "../Service/useServices";
+import { useServices } from "@/components/Service/useServices";
 
 export interface AnswerCardProps extends Omit<StackProps, "onSelect"> {
   userId: string;
-  questionId: number;
   answer: Answer;
   onSelect?: (
     event: React.MouseEvent<HTMLButtonElement>,
@@ -22,7 +21,6 @@ export interface AnswerCardProps extends Omit<StackProps, "onSelect"> {
 
 export const AnswerCard = ({
   userId,
-  questionId,
   answer,
   onSelect,
   ...others
@@ -32,7 +30,7 @@ export const AnswerCard = ({
   const handleSelect = async (event: React.MouseEvent<HTMLButtonElement>) => {
     await services.answers.create({
       userId,
-      questionId,
+      questionId: answer.question_id,
       answerId: answer.id,
     });
 

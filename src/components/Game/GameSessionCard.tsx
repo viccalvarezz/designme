@@ -2,12 +2,10 @@ import React from "react";
 import {
   Stack,
   StackProps,
-  Grid,
   Heading,
   Text,
   Button,
   Box,
-  VStack,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { Game } from "@/types";

@@ -7,7 +7,7 @@ import { HomeQualitiesSection } from "@/components/Home/HomeQualitiesSection";
 import { HomeBenefitsSection } from "@/components/Home/HomeBenefitsSection";
 import { HomeNewsSection } from "@/components/Home/HomeNewsSection";
 
-const IndexPage = () => {
+const HomePage = () => {
   return (
     <>
       <LayoutHeader />
@@ -33,4 +33,4 @@ const IndexPage = () => {
   );
 };
 
-export default IndexPage;
+export default HomePage;

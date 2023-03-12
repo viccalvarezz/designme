@@ -72,7 +72,6 @@ const QuestionDetailPage = ({ question, answers }: QuestionDetailPageProps) => {
                   <AnswerCard
                     key={index}
                     userId={user.id}
-                    questionId={question.id}
                     answer={answer}
                     onSelect={handleSelect}
                   />
