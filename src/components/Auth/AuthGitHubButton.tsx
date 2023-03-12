@@ -17,7 +17,7 @@ export const AuthGitHubButton = (props: ButtonProps) => {
     await supabaseClient.auth.signInWithOAuth({
       provider: "github",
       options: {
-        redirectTo: `${window.location.protocol}//${window.location.host}/games`,
+        redirectTo: `${window.location.protocol}//${window.location.host}`,
       },
     });
   };
