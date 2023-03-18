@@ -21,7 +21,7 @@ export class AnswersService {
     return answers;
   }
 
-  async create({
+  async upsert({
     questionId,
     answerId,
     userId,

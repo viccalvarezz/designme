@@ -3,8 +3,16 @@ import userEvent from "@testing-library/user-event";
 import { useUser } from "@supabase/auth-helpers-react";
 import { LayoutHeader } from "@/components/Layout/LayoutHeader";
 import { ProvidersWrapper } from "../../utils/ProvidersWrapper";
-import { session } from "../../../__mocks__/session";
 
+const user = {
+  id: "4f6ab4dc-9c9c-4a31-87fd-0387c944dbd0",
+  email: "victoria.alvarez.sordo@gmail.com",
+  user_metadata: {
+    avatar_url: "https://avatars.githubusercontent.com/u/43728577?v=4",
+    user_name: "viccalvarezz",
+    name: "Victoria Alvarez",
+  },
+};
 const signOut = jest.fn();
 
 jest.mock("@supabase/auth-helpers-react", () => ({
@@ -56,7 +64,7 @@ describe("LayoutHeader", () => {
   });
 
   it("should render when a user is authenticated", async () => {
-    (useUser as jest.Mock).mockReturnValue(session.user);
+    (useUser as jest.Mock).mockReturnValueOnce(user);
 
     render(<LayoutHeader />, {
       wrapper: ProvidersWrapper,
@@ -72,7 +80,7 @@ describe("LayoutHeader", () => {
   });
 
   it("should logout", async () => {
-    (useUser as jest.Mock).mockReturnValue(session.user);
+    (useUser as jest.Mock).mockReturnValueOnce(user);
 
     render(<LayoutHeader />, {
       wrapper: ProvidersWrapper,

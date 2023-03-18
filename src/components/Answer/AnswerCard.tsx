@@ -28,7 +28,7 @@ export const AnswerCard = ({
   const services = useServices();
 
   const handleSelect = async (event: React.MouseEvent<HTMLButtonElement>) => {
-    await services.answers.create({
+    await services.answers.upsert({
       userId,
       questionId: answer.question_id,
       answerId: answer.id,

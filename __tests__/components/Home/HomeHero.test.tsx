@@ -9,6 +9,7 @@ describe("HomeHero", () => {
     expect(
       await screen.findByRole("heading", {
         name: /Learn the basics of UI\/UX design/i,
+        level: 1,
       })
     ).toBeInTheDocument();
     expect(

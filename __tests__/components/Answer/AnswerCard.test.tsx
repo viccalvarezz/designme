@@ -3,12 +3,12 @@ import userEvent from "@testing-library/user-event";
 import { AnswerCard } from "@/components/Answer/AnswerCard";
 import { ProvidersWrapper } from "../../utils/ProvidersWrapper";
 
-const createAnswer = jest.fn();
+const upsertAnswer = jest.fn();
 
 jest.mock("@/components/Service/useServices", () => ({
   useServices: () => ({
     answers: {
-      create: createAnswer,
+      upsert: upsertAnswer,
     },
   }),
 }));
@@ -61,7 +61,7 @@ describe("AnswerCard", () => {
     userEvent.click(await screen.findByRole("button", { name: "Select" }));
 
     await waitFor(() => [
-      expect(createAnswer).toHaveBeenCalledWith({
+      expect(upsertAnswer).toHaveBeenCalledWith({
         answerId: answer.id,
         questionId: answer.question_id,
         userId,
