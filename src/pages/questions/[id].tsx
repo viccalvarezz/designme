@@ -56,7 +56,6 @@ const QuestionDetailPage = ({ question, answers }: QuestionDetailPageProps) => {
             <Box w="full" maxW="container.lg">
               <AnswerModal
                 isOpen={isOpen}
-                question={question}
                 answer={answer}
                 onClose={handleClose}
               />
