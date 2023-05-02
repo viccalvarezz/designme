@@ -1,4 +1,4 @@
-import { Answer, Question } from "@/types";
+import { Answer } from "@/types";
 import {
   Modal,
   ModalOverlay,
@@ -12,12 +12,10 @@ import {
 } from "@chakra-ui/react";
 
 export interface AnswerModalProps extends Omit<ModalProps, "children"> {
-  question: Question;
   answer?: Answer;
 }
 
 export const AnswerModal = ({
-  question,
   answer,
   onClose,
   ...others
@@ -30,7 +28,7 @@ export const AnswerModal = ({
           {answer?.is_correct ? "Right answer" : "Wrong answer"}
         </ModalHeader>
         <ModalCloseButton />
-        <ModalBody>{question.description}</ModalBody>
+        <ModalBody>{answer?.description}</ModalBody>
 
         <ModalFooter>
           <Button colorScheme="green" onClick={onClose}>

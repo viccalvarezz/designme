@@ -23,22 +23,14 @@ describe("AnswerCard", () => {
     };
     const onClose = jest.fn();
 
-    render(
-      <AnswerModal
-        isOpen
-        question={question}
-        answer={answer}
-        onClose={onClose}
-      />,
-      {
-        wrapper: ProvidersWrapper,
-      }
-    );
+    render(<AnswerModal isOpen answer={answer} onClose={onClose} />, {
+      wrapper: ProvidersWrapper,
+    });
 
     expect(await screen.findByText("Wrong answer")).toBeInTheDocument();
     expect(
       await screen.findByText(
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit a ?"
+        "Lorem ipsum dolor sit amet consectetur adipiscing elit a, potenti fames ultrices turpis vel magnis montes lacinia duis, congue praesent porta sollicitudin taciti tempor nisi."
       )
     ).toBeInTheDocument();
     expect(
@@ -47,12 +39,6 @@ describe("AnswerCard", () => {
   });
 
   it("should render when is correct", async () => {
-    const question = {
-      id: 1,
-      game_id: 1,
-      description: "Lorem ipsum dolor sit amet consectetur adipiscing elit a ?",
-      created_at: "2023-02-18T17:33:50.912759+00:00",
-    };
     const answer = {
       id: 1,
       question_id: 1,
@@ -65,22 +51,14 @@ describe("AnswerCard", () => {
     };
     const onClose = jest.fn();
 
-    render(
-      <AnswerModal
-        isOpen
-        question={question}
-        answer={answer}
-        onClose={onClose}
-      />,
-      {
-        wrapper: ProvidersWrapper,
-      }
-    );
+    render(<AnswerModal isOpen answer={answer} onClose={onClose} />, {
+      wrapper: ProvidersWrapper,
+    });
 
     expect(await screen.findByText("Right answer")).toBeInTheDocument();
     expect(
       await screen.findByText(
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit a ?"
+        "Lorem ipsum dolor sit amet consectetur adipiscing elit a, potenti fames ultrices turpis vel magnis montes lacinia duis, congue praesent porta sollicitudin taciti tempor nisi."
       )
     ).toBeInTheDocument();
     expect(
