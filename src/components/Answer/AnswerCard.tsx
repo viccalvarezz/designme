@@ -6,6 +6,7 @@ import {
   Image,
   AspectRatio,
   ButtonGroup,
+  Box,
 } from "@chakra-ui/react";
 import { Answer } from "@/types";
 import { useServices } from "@/components/Service/useServices";
@@ -39,16 +40,21 @@ export const AnswerCard = ({
 
   return (
     <Stack as="article" spacing={8} {...others}>
-      <AspectRatio position="relative" ratio={1}>
-        <Image
-          boxShadow="md"
-          src={answer.src}
-          alt={answer.alt}
-          objectFit="cover"
-          borderRadius="lg"
-          w="full"
-          h="full"
-        />
+      <AspectRatio
+        position="relative"
+        ratio={1}
+        boxShadow="md"
+        borderRadius="lg"
+      >
+        <Box w="full" h="full">
+          <Image
+            src={answer.src}
+            alt={answer.alt}
+            objectFit="scale-down"
+            w="full"
+            h="full"
+          />
+        </Box>
       </AspectRatio>
 
       <ButtonGroup w="full" justifyContent="center">
