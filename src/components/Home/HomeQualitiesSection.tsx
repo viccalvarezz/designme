@@ -14,9 +14,21 @@ export type HomeQualitiesSectionProps = StackProps;
 
 export const HomeQualitiesSection = (props: HomeQualitiesSectionProps) => {
   const qualities = [
-    { title: "Commitment", src: "/images/person1.png", alt: "" },
-    { title: "Patience", src: "/images/person2.png", alt: "" },
-    { title: "Practice", src: "/images/person3.png", alt: "" },
+    {
+      title: "Commitment",
+      src: "/images/person1.png",
+      alt: "A cartoon man with a happy facee",
+    },
+    {
+      title: "Patience",
+      src: "/images/person2.png",
+      alt: "A cartoon woman with a happy face",
+    },
+    {
+      title: "Practice",
+      src: "/images/person3.png",
+      alt: "A cartoon woman with a happy face",
+    },
   ];
 
   return (
