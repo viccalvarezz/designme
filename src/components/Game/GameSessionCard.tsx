@@ -41,6 +41,7 @@ export const GameSessionCard = ({
         fontWeight="bold"
         justifyContent="center"
         alignItems="center"
+        color="grey.800"
       >
         {index}
       </Box>

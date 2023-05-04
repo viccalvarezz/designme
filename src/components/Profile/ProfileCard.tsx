@@ -28,7 +28,7 @@ export const ProfileCard = ({
     >
       <Avatar name={name} size="xl" src={src} />
 
-      <Heading as="h2" fontSize="xl">
+      <Heading as="h2" fontSize="xl" color="grey.800">
         {name}
       </Heading>
 

@@ -38,14 +38,14 @@ export const ProfileStatsItem = ({
             left="50%"
             transform="translate(-50%, 0)"
           >
-            <Text fontWeight="bold" textAlign="center">
+            <Text fontWeight="bold" textAlign="center" color="grey.800">
               {percentage} %
             </Text>
           </Box>
         </Box>
       </Box>
 
-      <Text fontWeight="bold" textAlign="center">
+      <Text fontWeight="bold" textAlign="center" color="grey.800">
         {stat.name.charAt(0).toUpperCase()}
       </Text>
     </Stack>

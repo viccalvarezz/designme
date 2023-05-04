@@ -7,6 +7,7 @@ import {
   AspectRatio,
   ButtonGroup,
   Box,
+  useColorMode,
 } from "@chakra-ui/react";
 import { Answer } from "@/types";
 import { useServices } from "@/components/Service/useServices";
@@ -27,6 +28,8 @@ export const AnswerCard = ({
   ...others
 }: AnswerCardProps) => {
   const services = useServices();
+  const { colorMode } = useColorMode();
+  const isDark = colorMode === "dark";
 
   const handleSelect = async (event: React.MouseEvent<HTMLButtonElement>) => {
     await services.answers.upsert({
@@ -45,6 +48,7 @@ export const AnswerCard = ({
         ratio={1}
         boxShadow="md"
         borderRadius="lg"
+        bgColor={isDark ? "grey.700" : "white"}
       >
         <Box w="full" h="full">
           <Image

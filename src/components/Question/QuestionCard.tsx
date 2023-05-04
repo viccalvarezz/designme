@@ -44,6 +44,7 @@ export const QuestionCard = ({
         fontWeight="bold"
         justifyContent="center"
         alignItems="center"
+        color="grey.800"
       >
         {index}
       </Box>
@@ -64,7 +65,7 @@ export const QuestionCard = ({
             )}
 
             <NextLink href={`/questions/${question.id}`} passHref>
-              <Button as="a" color="green.400">
+              <Button as="a" color="green.400" bgColor="white">
                 Retry
               </Button>
             </NextLink>
