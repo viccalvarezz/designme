@@ -6,13 +6,14 @@ import { HomeHero } from "@/components/Home/HomeHero";
 import { HomeQualitiesSection } from "@/components/Home/HomeQualitiesSection";
 import { HomeBenefitsSection } from "@/components/Home/HomeBenefitsSection";
 import { HomeNewsSection } from "@/components/Home/HomeNewsSection";
+import { AuthRedirect } from "@/components/Auth/AuthRedirect";
 
 const HomePage = () => {
   return (
-    <>
+    <AuthRedirect>
       <LayoutHeader />
 
-      <LayoutMain>
+      <LayoutMain my={0}>
         <HomeHero />
         <Center>
           <Divider w="container.xl" />
@@ -29,7 +30,7 @@ const HomePage = () => {
       </LayoutMain>
 
       <LayoutFooter />
-    </>
+    </AuthRedirect>
   );
 };
 

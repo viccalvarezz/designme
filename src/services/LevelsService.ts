@@ -16,8 +16,8 @@ export class LevelsService {
 
   async fetchStats({ userId }: { userId: string }): Promise<Array<LevelStats>> {
     // @ts-ignore
-    const { data } = await this.supabase.rpc("stats", {
-      user_id: userId,
+    const { data } = await this.supabase.rpc("compute_stats", {
+      current: userId,
     });
 
     return data;

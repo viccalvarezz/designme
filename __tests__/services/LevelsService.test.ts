@@ -58,6 +58,8 @@ describe("LevelsService", () => {
 
     await service.fetchStats({ userId });
 
-    expect(supabase.rpc).toHaveBeenCalledWith("stats", { user_id: userId });
+    expect(supabase.rpc).toHaveBeenCalledWith("compute_stats", {
+      current: userId,
+    });
   });
 });
