@@ -41,7 +41,7 @@ export const HomeHero = (props: HomeHeroProps) => {
             <Text fontSize="lg">
               A fun, easy and fast way to learn the essentials of user interface
               design for the best user experience for{` `}
-              <Text as="b" color="green.400">
+              <Text as="b" color="green.600">
                 free
               </Text>
             </Text>
