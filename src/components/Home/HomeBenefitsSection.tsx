@@ -38,7 +38,7 @@ export const HomeBenefitsSection = (props: HomeBenefitsSectionProps) => {
     {
       title: "View your progress",
       description:
-        "Your progress will be available for you to view graphically and encourage vou to complete 100%.",
+        "Your progress will be available for you to view graphically and encourage you to complete 100%.",
       icon: BiLineChart,
     },
     {

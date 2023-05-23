@@ -96,7 +96,7 @@ describe("HomePage", () => {
     ).toBeInTheDocument();
     expect(
       await screen.findByText(
-        /Your progress will be available for you to view graphically and encourage vou to complete 100%./i
+        /Your progress will be available for you to view graphically and encourage you to complete 100%./i
       )
     ).toBeInTheDocument();
 
